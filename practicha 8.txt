@@ -1,0 +1,17 @@
+git checkout -b development
+touch division.py
+# division.py
+
+def divide(a, b):
+    return a / b
+git add division.py
+git commit -m "Added division function"
+git checkout -b feature/zero_division_fix development
+def divide(a, b):
+    if b == 0:
+        return "Error: Division by zero is not allowed"
+    return a / b
+git add division.py
+git commit -m "Added zero division check"
+git checkout development
+git merge feature/zero_division_fix
